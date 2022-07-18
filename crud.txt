@@ -121,3 +121,7 @@ const editProduct = (parametros) => {
   
 // })
 // document.addEventListener('DOMContentLoaded', verForm)
+arrayArticulos = JSON.parse(localStorage.getItem('products'))
+if(arrayArticulos === null){
+        arrayArticulos = []
+    }else {

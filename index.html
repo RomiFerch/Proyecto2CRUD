@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario</title>
@@ -21,39 +22,42 @@
         </div>
       </nav>
     <section">
-      <div class="container-fluid">
-        <img src="" alt="">
+      <div class="container fluid">        
+      <div class="row">
+        <div class="col-sm-6 col-lg-5 col-md-5 m-3 p-2">
+          <img class="cont2" src="./images/fork.png" alt="ForkCrud">
+  
+        </div>
+          <!--// Descripcion de uso// -->
+        <div class="col-sm-6 col-lg-5 col-md-5 my-5 text-center" >
+          <h1>Inventario Interno</h1>
+          <p class="mx-3 my-4">Ingresar productos nuevos y editar los Stock a diario </p>
+        </div>
         
       </div>
-        <!--// Descripcion de uso// -->
-     <div class="container fluid my-4 text-center" >
-        <h1>Zombie ipsum reversus ab viral inferno, nam rick grimes malum</h1>
-        <p> Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse.</p>
-      </div>
-    
     </section> 
 </header>
 <body>
   <div class="container">
     <form id = "fomulario">
       <div class="mb-3">
-        <label for="descripcion" class="col-form-label">Descripción:</label>
-        <input id="descripcion" type="text" class="form-control" autofocus>
+        <label for="descripcion" class="col-form-label">Nombre Producto:</label>
+        <input id="descripcion" type="text" class="form-control" autofocus placeholder="Nombre Producto">
       </div>
       <div class="mb-3">
         <label for="precio" class="col-form-label">Precio:</label>
-        <input id="precio" type="number" class="form-control" autofocus>
+        <input id="precio" type="number" class="form-control" autofocus placeholder="$1990">
       </div>
       <div class="mb-3">
         <label for="stock" class="col-form-label">Stock:</label>
-        <input id="stock" type="number" class="form-control" autofocus>
+        <input id="stock" type="number" class="form-control" autofocus placeholder="100">
       </div>
     </form>
     <button id="btnCrear" type="button" class="btn btn-primary">Agregar Artículo</button>
   
-    <table id="tablaArticulos" class="table my-3 table-bordered table-striped">
-      <thead>
-        <tr class="text-center">
+    <table id="tablaArticulos" class="table my-3 table-borderless table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
           <th>ID</th>
           <th>Descripción</th>
           <th>Precio</th>
@@ -69,7 +73,12 @@
 
   </div>
  
-  <footer>
+  <footer class="bg-dark">           
+    <div class="container-fluid">
+        <div class="row p-3 mt-3">
+          <div class="col-md-12 text-center text-light">© 2022. Todos los derechos reservados. Esta es una página de aterrizaje ficticia para fines académicos</div>
+        </div>
+    </div>
 
   </footer>
   <!--FontAwesome-->
