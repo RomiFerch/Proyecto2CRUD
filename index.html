@@ -24,12 +24,12 @@
     <section">
       <div class="container fluid">        
       <div class="row">
-        <div class="col-sm-6 col-lg-5 col-md-5 m-3 p-2">
+        <div class="col-sm-12 col-lg-5 col-md-5 m-3 p-2">
           <img class="cont2" src="./images/fork.png" alt="ForkCrud">
   
         </div>
           <!--// Descripcion de uso// -->
-        <div class="col-sm-6 col-lg-5 col-md-5 my-5 text-center" >
+        <div class="col-sm-12 col-lg-5 col-md-5 my-5 text-center" >
           <h1>Inventario Interno</h1>
           <p class="mx-3 my-4">Ingresar productos nuevos y editar los Stock a diario </p>
         </div>
@@ -53,7 +53,7 @@
         <input id="stock" type="number" class="form-control" autofocus placeholder="100">
       </div>
     </form>
-    <button id="btnCrear" type="button" class="btn btn-primary">Agregar Artículo</button>
+    <button id="btnCrear" type="submit" class="btn btn-primary">Agregar Artículo</button>
   
     <table id="tablaArticulos" class="table my-3 table-borderless table-striped table-hover">
       <thead class="table-dark">
@@ -68,8 +68,13 @@
       <tbody id="tabla1">
 
       </tbody>
+      
 
     </table>
+    <div class="container">
+      <!-- <button class="btn btn-success my-3 position-end-0">Guardar Cambios</button> -->
+
+    </div>
 
   </div>
  
