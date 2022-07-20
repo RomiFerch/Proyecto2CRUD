@@ -77,7 +77,6 @@ function deleteArticle(descripcion){
     }
 
 //document.addEventListener('DOMContentLoaded', printTable)
-
     printTable()
     btnAdd.addEventListener('click', addArticle)
 
