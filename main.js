@@ -9,7 +9,7 @@ let tabla1 = document.getElementById('tabla1')
 let arrayArticulos = []
 
 //Funcion para tomar los datos y agregarlos al array como objeto = producto
-const agregarProducto = () =>{
+const addArticle = () =>{
     let producto = {
         descripcion: nombre.value,
         precio: price.value,
@@ -17,29 +17,32 @@ const agregarProducto = () =>{
 
     }
     arrayArticulos.push(producto)
+
+    nombre.value=""
+    price.value=""
+    cantidad.value=""
     
     guardarLS()
-    //form.reset()
-//la funcioón para resetar el for,mulario no se por no me funciona :´(
+   
 }
-//Funcion para levar los datos del Array al LocalStorage
+//Funcion para llevar los datos del Array al LocalStorage
 const guardarLS = () => {
     localStorage.setItem('products', JSON.stringify(arrayArticulos))
 
-    llenarTabla()
+    printTable()
     
 }
 //funcion para llenar tabla en el tbody del HTML
-//quisiera poner condicionales pero no se como :(
-const llenarTabla = () =>{
+//poner condicionnales
+const printTable = () =>{
     
     tabla1.innerHTML=''
 
     arrayArticulos = JSON.parse(localStorage.getItem('products'))
 
-    if (arrayArticulos === null){
-        arrayArticulos = []
-    }else {
+     if (arrayArticulos === null){
+         arrayArticulos = []
+     }else {
         arrayArticulos.forEach((producto, index) => {
             tabla1.innerHTML+= `
             <tr class="mt-4 ">
@@ -49,61 +52,35 @@ const llenarTabla = () =>{
                 <td>${producto.stock}</td>
                 <td>
                     <span class="float-auto">
-                        <i class="fa-solid edit fa-pen-to-square mx-3"></i>
-                        <i class="fa-solid trash fa-trash-can mx-3"></i>
+                        <i class="fa-solid edit fa-pen-to-square mx-3" id=${producto.descripcion}></i>
+                        <i class="fa-solid trash fa-trash-can mx-3"id=${producto.descripcion}></i>
                     </span>
                 </td>
             </tr>
             `
     
         })
-       
+        
+        let botonBorrar = Array.from(document.getElementsByClassName('fa-solid trash fa-trash-can mx-3'))
+            botonBorrar.forEach((deleteBtn)=>{
+            deleteBtn.addEventListener('click', (event)=> deleteArticle(event.target.id))
+        })
         
     }
-    
+    }
+    printTable()
+
+//reparar retorno a la tabla
+function deleteArticle(descripcion){
+    arrayArticulos = arrayArticulos.filter((producto)=>producto.descripcion!==descripcion)
+    addArticle()
     }
 
-document.addEventListener('DOMContentLoaded', llenarTabla)
+//document.addEventListener('DOMContentLoaded', printTable)
 
-//Funcion para darle accion a los botones del formulario
-//Diosito iluminame
-
-function accionBtn(){
-    let btnEditar = Array.from(document.getElementsByClassName('fa-solid edit fa-pen-to-square mx-3'))
-    let btnTrash = Array.from(document.getElementsByClassName('fa-solid trash fa-trash-can mx-3'))
-
-    btnTrash.forEach((deleteBtn)=>{
-        const newLocal = 'hola'
-        deleteBtn.addEventListener('click', console.log(newLocal))
-    })
-}
-
-    
-/*const deleteBtn = (dBtn) =>{
-    btnTrash.addEventListener('click' (accionBtn))
-    accionBtn.prevenDefault()
-    
-//     if(Element.arrayArticulos === dBtn){
-//         arrayArticulos.splice
-//     }
-
-//     console.log(accionBtn);
-}
-    accionBtn()
-}
-
-//console.log(btnEditar);
-//falta los agregar eventListener
+    printTable()
+    btnAdd.addEventListener('click', addArticle)
 
 
 
-/*const verForm = () => {
-    descripcion.innerHTML = '';
-}*/
-
-
-llenarTabla()
-btnAdd.addEventListener('click', agregarProducto)
-
-agregarProducto.prevenDefault
 
